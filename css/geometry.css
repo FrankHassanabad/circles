@@ -1,0 +1,82 @@
+body
+{
+    background: whitesmoke;
+    color: #505050;
+    text-shadow: 2px 1px 3px rgba(200, 200, 200, 0.43);
+}
+
+.demo-svg {
+    float:left;
+    width:300px;
+}
+
+.sidebar {
+    float:left;
+    width:450px;
+}
+
+.demo-container {
+    box-sizing: border-box;
+    width: 850px;
+    height: 700px;
+    padding: 0px 15px 15px;
+    margin: 55px auto 30px auto;
+    border: 1px solid #ddd;
+    background: #fff;
+    background: linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -o-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -ms-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -moz-linear-gradient(#f6f6f6 0, #fff 50px);
+    background: -webkit-linear-gradient(#f6f6f6 0, #fff 50px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    -o-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.circleNoFill {
+    fill: none;
+
+    stroke: #4d4d4d;
+    stroke-width: 1;
+}
+
+.lineText {
+    fill: #676767;
+    font-size: 80%;
+    font-family: Arial;
+}
+
+.title {
+    fill: #676767;
+    font-size: 180%;
+    font-family: Arial;
+}
+
+.circle {
+    fill-opacity: .8;
+    cursor: pointer;
+}
+
+.axis {
+    font-size: 60%;
+    font-family: Arial;
+    fill: #676767;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #676767;
+    shape-rendering: crispEdges;
+    stroke-width: 1;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.drillIn {
+    display:none;
+}

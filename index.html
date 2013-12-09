@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circles</title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="bower_components/d3/d3.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/geometry.css">
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        function getData() {
+            return [
+                {
+                    xValue: "12a",
+                    yValue: "Monday",
+                    radius: 0
+                },
+                {
+                    xValue: "1a",
+                    yValue: "Tuesday",
+                    radius: 0
+                },
+                {
+                    xValue: "2a",
+                    yValue: "Wednesday",
+                    radius: 48,
+                    rings: [
+                        {
+                            radius: 120,
+                            xValue: "Commits 25"
+                        },
+                        {
+                            radius: 98,
+                            xValue: "Commits 16"
+                        },
+                        {
+                            radius: 58,
+                            xValue: "Commits 5"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 75"
+                        }
+                    ]
+                },
+                {
+                    xValue: "3a",
+                    yValue: "Thursday",
+                    radius: 12,
+                    rings: [
+                        {
+                            radius: 120,
+                            xValue: "Commits 10"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 25"
+                        }
+                    ]
+                },
+                {
+                    xValue: "4a",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "5a",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "6a",
+                    yValue: "Monday",
+                    radius: 48,
+                    rings: [
+                        {
+                            radius: 120,
+                            xValue: "Commits 35"
+                        },
+                        {
+                            radius: 100,
+                            xValue: "Commits 16"
+                        },
+                        {
+                            radius: 88,
+                            xValue: "Commits 10"
+                        },
+                        {
+                            radius: 58,
+                            xValue: "Commits 5"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 45"
+                        }
+                    ]
+                },
+                {
+                    xValue: "7a",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "8a",
+                    yValue: "Saturday",
+                    radius: 0
+                },
+                {
+                    xValue: "9a",
+                    yValue: "Sunday",
+                    radius: 0
+                },
+                {
+                    xValue: "10a",
+                    yValue: "Thursday",
+                    radius: 22,
+                    rings: [
+                        {
+                            radius: 200,
+                            xValue: "Commits 25"
+                        }
+                    ]
+                },
+                {
+                    xValue: "11a",
+                    yValue: "Wednesday",
+                    radius: 25,
+                    rings: [
+                        {
+                            radius: 60,
+                            xValue: "Commits 10"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 35"
+                        }
+                    ]
+                },
+                {
+                    xValue: "12p",
+                    yValue: "Wednesday",
+                    radius: 0
+                },
+                {
+                    xValue: "1p",
+                    yValue: "Sunday",
+                    radius: 0
+                },
+                {
+                    xValue: "2p",
+                    yValue: "Monday",
+                    radius: 9,
+                    rings: [
+                        {
+                            radius: 200,
+                            xValue: "Commits 3"
+                        }
+                    ]
+                },
+                {
+                    xValue: "3p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "4p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "5p",
+                    yValue: "Wednesday",
+                    radius: 30,
+                    rings: [
+                        {
+                            radius: 120,
+                            xValue: "Commits 25"
+                        },
+                        {
+                            radius: 38,
+                            xValue: "Commits 5"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 44"
+                        }
+                    ]
+                },
+                {
+                    xValue: "6p",
+                    yValue: "Friday",
+                    radius: 46,
+                    rings: [
+                        {
+                            radius: 200,
+                            xValue: "Commits 24"
+                        }
+                    ]
+                },
+                {
+                    xValue: "7p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "8p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "9p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "10p",
+                    yValue: "Friday",
+                    radius: 0
+                },
+                {
+                    xValue: "11p",
+                    yValue: "Tuesday",
+                    radius: 22,
+                    rings: [
+                        {
+                            radius: 120,
+                            xValue: "Commits 25"
+                        },
+                        {
+                            radius: 98,
+                            xValue: "Commits 16"
+                        },
+                        {
+                            radius: 58,
+                            xValue: "Commits 5"
+                        },
+                        {
+                            radius: 8,
+                            xValue: "Commits 1"
+                        },
+                        {
+                            radius: 200,
+                            xValue: "Commits 44"
+                        }
+                    ]
+                }
+            ]
+        }
+
+        var lastPosition = {
+            cx: 0,
+            cy: 0,
+            r: 0
+        };
+
+        function transitionDrillin(data) {
+            lastPosition.cx = data.getAttribute("cx");
+            lastPosition.cy = data.getAttribute("cy");
+            lastPosition.r = data.getAttribute("r");
+            lines.transition().style("stroke-width", 0).duration(500);
+            var circlesFiltered = circles.filter(function() {
+                if (this.getAttribute("cx") === lastPosition.cx && this.getAttribute("cy") === lastPosition.cy && this.getAttribute("r") === lastPosition.r) {
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+
+            circlesFiltered.transition().attr("r", 0).duration(500);
+            var movingTransition = container.transition().styleTween("display", function() {
+                return function(d, i, a) {
+                    if(d === 1) {
+                        return "none";
+                    } else {
+                        return "inline";
+                    }
+                }
+            }).duration(500);
+            movingTransition.each("end", function() {
+                drillInCircle.attr("cx", lastPosition.cx);
+                drillInCircle.attr("cy", lastPosition.cy);
+                drillInCircle.attr("r", lastPosition.r);
+                $(".drillIn").css("display", "inline");
+                var movingTransition = drillInCircle.transition()
+                        .attr("cx", width/2)
+                        .attr("cy", height/2)
+                        .attr("r", 200)
+                        .duration(800);
+                movingTransition.each("end", function() {
+                    if(!data.__data__.rings) {
+                        drillIn.append("text")
+                                .attr("x", width / 2 - 20)
+                                .attr("y", height / 2 - 220)
+                                .text(data.__data__.xValue)
+                                .attr("class", "title rings");
+                    } else {
+                        var circleTransition = drillIn.selectAll(".rings").data(data.__data__.rings)
+                                .enter().append("circle")
+                                .attr("cx", width / 2)
+                                .attr("cy", height / 2)
+                                .attr("r", 0)
+                                .attr("class", "circleNoFill rings")
+                                .transition()
+                                .attr("r", function (data) {
+                                    return data.radius;
+                                })
+                                .duration(300);
+                        circleTransition.each("end", function(origData, i) {
+                            if(i === 0) {
+                                drillIn.append("text")
+                                        .attr("x", width / 2 - 20)
+                                        .attr("y", height / 2 - 220)
+                                        .text(data.__data__.xValue)
+                                        .attr("class", "title rings");
+
+                                var lineData = drillIn.selectAll(".line").data(data.__data__.rings)
+                                        .enter().append("line")
+                                        .attr("x1", function (data, i) {
+                                            return width / 2;
+                                        })
+                                        .attr("y1", function (data, i) {
+                                            return height / 2 + data.radius;
+                                        })
+                                        .attr("x2", function (data, i) {
+                                            //if(i % 2 == 0) {
+                                            //    return width / 2 - 300;
+                                            //} else {
+                                                return width / 2 + 300;
+                                            //}
+                                        })
+                                        .attr("y2", function (data, i) {
+                                            return height / 2 + data.radius;
+                                        })
+                                        .style("stroke-dasharray", "2, 3")
+                                        .attr("stroke-width", 1)
+                                        .attr("stroke", "#282828")
+                                        .attr("class", "rings lines");
+                                var lineText = drillIn.selectAll(".lineText").data(data.__data__.rings)
+                                        .enter().append("text")
+                                        .attr("x", function (data, i) {
+                                            //if(i % 2 == 0) {
+                                            //    return width / 2 - 300;
+                                            //} else {
+                                                return width / 2 + 300;
+                                            //}
+                                        })
+                                        .attr("y", function (data, i) {
+                                            return height / 2 + data.radius;
+                                        })
+                                        .text(function(data, i) {
+                                            return data.xValue;
+                                        })
+                                        .attr("class", "lineText rings");
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        function transitionMain(data) {
+            var cx = data.getAttribute("cx");
+            var cy = data.getAttribute("cy");
+            var r = data.getAttribute("r");
+            var rings = drillIn.selectAll(".rings");
+
+            function transitionOut() {
+                var movingTransition = drillInCircle.transition()
+                        .attr("cx", lastPosition.cx)
+                        .attr("cy", lastPosition.cy)
+                        .attr("r", lastPosition.r)
+                        .duration(500);
+                movingTransition.each("end", function() {
+                    $(".drillIn").css("display", "none");
+                    $(".chart").css("display", "inline");
+                    var circlesFiltered = circles.filter(function() {
+                        if (this.getAttribute("cx") === lastPosition.cx && this.getAttribute("cy") === lastPosition.cy && this.getAttribute("r") === lastPosition.r) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    });
+                    circlesFiltered.transition().attr("r", function(data) {
+                        return data.radius;
+                    }).duration(500);
+                    lines.transition().style("stroke-width",1).duration(500);
+                });
+            }
+            if(rings.size() > 0) {
+                var ringTransition = rings.transition().attr("r", 0).duration(300).remove();
+                ringTransition.each("end", function() {
+                    transitionOut();
+                });
+            } else {
+                transitionOut();
+            }
+        }
+
+        var margin = {top: 20, right: 30, bottom: 30, left: 63},
+                width = 800 - margin.left - margin.right,
+                height = 550 - margin.top - margin.bottom;
+
+        var x = d3.scale.ordinal()
+                .rangePoints([0, width], 1);
+
+        var y = d3.scale.ordinal()
+                .rangePoints([0, height], .8);
+
+        var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left");
+
+        var container = d3.select(".chart");
+
+        var chart = container
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var data = getData();
+        x.domain(data.map(function (d) {
+            return d.xValue;
+        }));
+        y.domain(data.map(function (d) {
+            return d.yValue;
+        }));
+
+        chart.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+        chart.append("g")
+                .attr("class", "y axis")
+                .call(yAxis);
+
+        //Draw the lines
+        var lines = chart.selectAll(".line")
+                .data(data)
+                .enter().append("line");
+
+        lines
+                .attr("x1", function (data) {
+                    if (data.radius > 0) {
+                        return x(data.xValue);
+                    } else {
+                        return null;
+                    }
+                })
+                .attr("y1", function (data) {
+                    if (data.radius > 0) {
+                        return y(data.yValue) + data.radius + 1;
+                    } else {
+                        return null;
+                    }
+                })
+                .attr("x2", function (data) {
+                    if (data.radius > 0) {
+                        return x(data.xValue);
+                    } else {
+                        return null;
+                    }
+                })
+                .attr("y2", function (data) {
+                    if (data.radius > 0) {
+                        return height - 10;
+                    } else {
+                        return null;
+                    }
+                })
+                .attr("stroke", "#676767")
+                .attr("stroke-width", 0)
+                .transition()
+                .attr("stroke-width", 1)
+                .duration(500);
+
+        var circles = chart.selectAll(".circle")
+                .data(data)
+                .enter().append("circle");
+
+        circles.attr("class", "circle topCircle")
+                .attr("fill", "url(#grad1)")
+                .attr("cx", function (data) {
+                    return x(data.xValue);
+                })
+                .attr("cy", function (data) {
+                    return y(data.yValue);
+                })
+                .attr("r", 0)
+                .transition()
+                .attr("r", function (data) {
+                    return data.radius;
+                })
+                .duration(500);
+
+        //Set up the drillin
+        var drillIn = d3.select(".drillIn")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .attr("fill", "url(#grad2)")
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        //Draw the drillInCircle
+        var drillInCircle = drillIn.append("circle");
+
+        drillInCircle.attr("class", "circle drillInCircle")
+                .attr("cx", width / 2)
+                .attr("cy", height / 2)
+                .attr("r", 100);
+
+        $(".topCircle").each(function (index) {
+            $(this).click(function () {
+                transitionDrillin(this);
+            });
+        });
+
+        $(".drillInCircle").each(function (index) {
+            $(this).click(function () {
+                transitionMain(this);
+            });
+        });
+    });
+
+    </script>
+</head>
+<body>
+    <div class="demo-container">
+        <div>
+            <h1>
+                Circles
+            </h1>
+            <p>
+                Click any of the circles below to zoom into a detailed version of that circle and then click again to zoom out.  This demonstrates custom <a href="http://d3js.org/">d3js</a>
+                code and mimics the GitHub punch card.
+            </p>
+        </div>
+        <svg class="chart" width="100" height="500">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="20%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(79,122,92);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(43,84,55);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <svg class="drillIn" width="100" height="500">
+            <defs>
+                <linearGradient id="grad2" x1="0%" y1="20%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(79,122,92);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(43,84,55);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+</body>
+</html>
