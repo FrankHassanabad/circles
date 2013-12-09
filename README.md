@@ -1,4 +1,4 @@
-circles
+Circles
 =======
 
 Custom bubble chart d3js example.  Click any of the circles to zoom into a detailed version of
