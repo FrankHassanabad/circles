@@ -20,7 +20,7 @@ the GitHub punch card.
 git clone https://github.com/FrankHassanabad/circles.git
 ```
 
-Then open up a web browser to
+Then open up a web browser to your local file system at
 ```
-http://localhost:5000/circles/index.html
+circles/index.html
 ```
